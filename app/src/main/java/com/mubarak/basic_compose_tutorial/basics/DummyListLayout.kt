@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,7 +21,14 @@ import com.mubarak.basic_compose_tutorial.ui.theme.Basic_Compose_TutorialTheme
 //Dummy List
 @Composable
 fun DummyListLayout(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(8.dp)) {
+    /***
+     * Create all data views at once. For example, if you have 1,000 data items,
+     * all 1,000 items will be displayed immediately. This is a disadvantage of
+     * using verticalScroll(rememberScrollState()). A better approach is to use
+     * LazyColumn, which loads data lazily, meaning only the views currently visible
+     * on the screen are created.
+     */
+    Column(modifier = modifier.padding(8.dp).verticalScroll(rememberScrollState())) {
         dummyListItem()
         dummyListItem()
         dummyListItem()

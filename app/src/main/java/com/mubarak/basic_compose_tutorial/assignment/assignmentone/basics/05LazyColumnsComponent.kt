@@ -1,4 +1,4 @@
-package com.mubarak.basic_compose_tutorial.basics
+package com.mubarak.basic_compose_tutorial.assignment.assignmentone.basics
 
 import android.widget.Toast
 import androidx.compose.foundation.Image

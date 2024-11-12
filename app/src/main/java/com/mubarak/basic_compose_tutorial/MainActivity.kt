@@ -4,21 +4,24 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.unit.dp
 import com.mubarak.basic_compose_tutorial.assignment.assignmentone.DataManager
-import com.mubarak.basic_compose_tutorial.assignment.assignmentone.REDIRECTION
 import com.mubarak.basic_compose_tutorial.assignment.assignmentone.project.AssignmentOneMain
-import com.mubarak.basic_compose_tutorial.assignment.assignmentone.project.ItemDetails
-import com.mubarak.basic_compose_tutorial.assignment.assignmentone.project.ItemListingScreen
 import com.mubarak.basic_compose_tutorial.ui.theme.Basic_Compose_TutorialTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,6 +42,7 @@ class MainActivity : ComponentActivity() {
             Basic_Compose_TutorialTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val screenModifier = Modifier.padding(innerPadding)
+                    //Assignment one
                     //DummyListLayout(screenModifier)
                     //TextViewBasics(screenModifier)
                     //EditTextComponent(screenModifier)
@@ -46,8 +50,40 @@ class MainActivity : ComponentActivity() {
                     //LazyColumnsComponent(screenModifier)
                     //StateManagementComponent(screenModifier)
                     AssignmentOneMain(screenModifier)
+
+                    //Assignment two
+                    //LoaderShow()
+
+
                 }
             }
+        }
+    }
+
+
+}
+
+@Composable
+fun LoaderShow() {
+
+    val degree = produceState(initialValue = 0) {
+        while (true) {
+            delay(16)
+            value = (value + 8) % 360
+        }
+    }
+
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+
+        Column {
+            Image(
+                imageVector = Icons.Default.Refresh,
+                contentDescription = "",
+                modifier = Modifier
+                    .size(60.dp)
+                    .rotate(degree.value.toFloat())
+            )
+            Text("Loading...")
         }
     }
 }

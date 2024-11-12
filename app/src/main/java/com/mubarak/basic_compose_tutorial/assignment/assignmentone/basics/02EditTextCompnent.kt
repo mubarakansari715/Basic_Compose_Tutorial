@@ -1,4 +1,4 @@
-package com.mubarak.basic_compose_tutorial.basics
+package com.mubarak.basic_compose_tutorial.assignment.assignmentone.basics
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

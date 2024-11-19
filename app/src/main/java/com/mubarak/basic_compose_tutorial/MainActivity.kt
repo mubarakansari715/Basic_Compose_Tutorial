@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.unit.dp
 import com.mubarak.basic_compose_tutorial.assignment.assignmentone.DataManager
-import com.mubarak.basic_compose_tutorial.assignment.assignmentone.project.AssignmentOneMain
+import com.mubarak.basic_compose_tutorial.assignment.assignmenttwo.main.AppNavigation
 import com.mubarak.basic_compose_tutorial.ui.theme.Basic_Compose_TutorialTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -49,12 +49,11 @@ class MainActivity : ComponentActivity() {
                     //ModifierComponent(screenModifier)
                     //LazyColumnsComponent(screenModifier)
                     //StateManagementComponent(screenModifier)
-                    AssignmentOneMain(screenModifier)
+                    //AssignmentOneMain(screenModifier)
 
                     //Assignment two
                     //LoaderShow()
-
-
+                    AppNavigation()
                 }
             }
         }
